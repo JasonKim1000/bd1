@@ -30,9 +30,9 @@
 	
 	<insert id="insertArticle" parameterClass="board">
 		INSERT INTO BOARD 
-		 	(IDX, TITLE, WRITER, REGDATE, COUNT, CONTENT, REGIP)
+		 	(IDX, TITLE, WRITER, REGDATE, COUNT, CONTENT, REGIP, FILENAME)
 		 VALUES 
-		 	(board_seq.nextval, #title#, #writer#, sysdate, #count#, #content#, #regip#)
+		 	(board_seq.nextval, #title#, #writer#, sysdate, #count#, #content#, #regip#, #filename#)
 	
 	</insert>
 </sqlMap>

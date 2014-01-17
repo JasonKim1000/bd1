@@ -7,7 +7,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Board-Content</title>		
+<title>Board-Content</title>	
+<script>
+function onDownload(idx) {
+	var o = document.getElementById("ifrm_filedown");	
+	o.src = "download.do?idx="+idx;
+}
+</script>		
 </head>
 
 
@@ -33,6 +39,10 @@
 		<tr>
 			<th colspan="2">Content</th>						
 			<td colspan="6">${article.content}</td>
+		</tr>
+		<tr>
+			<th colspan="2">File</th>			
+			<td colspan="8"><a href="#" onclick="onDownload('${article.idx}')">${article.filename}</a></td>
 		</tr>
 	</table>
 	<a href="delete.do?idx=${article.idx}">DELETE</a>

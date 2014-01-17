@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.board.beans.Board;
 import com.board.controller.CommandAction;
 import com.board.dao.BoardDao;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 public class InsertAction implements CommandAction {
 
@@ -17,12 +19,21 @@ public class InsertAction implements CommandAction {
 	public String requestPro(HttpServletRequest request,
 			HttpServletResponse response) throws Throwable {
 
+		MultipartRequest multi = null;
+		int sizeLimit = 10 * 1024 * 1024 ; 
+		
+		@SuppressWarnings("deprecation")
+		String savePath = request.getRealPath("/upload");    
+		
+		try{
+			multi=new MultipartRequest(request, savePath, sizeLimit, "utf-8", new DefaultFileRenamePolicy());
+		}catch (Exception e) {
+			e.printStackTrace();
+		}		
 
-		Board article = new Board();
-
+		String filename = multi.getFilesystemName("filename");
 		String title = request.getParameter("title");
 		String writer = request.getParameter("writer");
-
 		int count=0;
 		String content = request.getParameter("content");
 		String regip = request.getRemoteAddr();
@@ -33,6 +44,8 @@ public class InsertAction implements CommandAction {
 
 		if(content==""||content==null) System.out.println("content is null");
 
+		Board article = new Board();
+		
 		article.setRegip(regip);
 		article.setTitle(title);
 		article.setWriter(writer);
@@ -40,7 +53,7 @@ public class InsertAction implements CommandAction {
 		article.setCount(count);
 
 		BoardDao.getInstance().insertArticle(article);
-		
+
 		return "insert.jsp";
 	}		
 
