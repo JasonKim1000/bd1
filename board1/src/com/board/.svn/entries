@@ -1,70 +1,0 @@
-10
-
-dir
-0
-https://dev.naver.com/svn/board1/board1/src/com/board
-https://dev.naver.com/svn/board1
-add
-
-
-
-
-
-
-
-svn:special svn:externals svn:needs-lock
-
-
-
-
-
-
-
-
-
-
-
-ba991bba-b955-4a47-b8fa-f1297c854543
-
-action
-dir
-
-
-
-add
-
-beans
-dir
-
-
-
-add
-
-controller
-dir
-
-
-
-add
-
-dao
-dir
-
-
-
-add
-
-db
-dir
-
-
-
-add
-
-properties
-dir
-
-
-
-add
-

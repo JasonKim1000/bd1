@@ -12,9 +12,13 @@
 		title : <input type="text" name="title" /><br/>
 		writer : <input type="text" name="writer" /><br/>
 		content : <textarea rows="10" cols="20" name="content"></textarea><br/>
+		
+		file : <input type="file" name="filename"><br/>
+		
 		<input type="submit"/>
 	</form>
 	<script>
+	
 	function formCheck() { /*
 		var title = document.forms[0].title.value;       
 		var writer = document.forms[0].writer.value;
