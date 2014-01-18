@@ -50,6 +50,7 @@ public class InsertAction implements CommandAction {
 		article.setWriter(writer);
 		article.setContent(content);
 		article.setCount(count);
+		article.setFilename(filename);
 
 		BoardDao.getInstance().insertArticle(article);
 

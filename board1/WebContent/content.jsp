@@ -17,7 +17,8 @@ function onDownload(idx) {
 </head>
 
 
-<body>											
+<body>		
+<iframe id="ifrm_filedown" style="position:absolute; z-index:1;visibility : hidden;"></iframe>									
 	<h1>Order-Content</h1>						
 	<table border="1">							
 		<tr>									
